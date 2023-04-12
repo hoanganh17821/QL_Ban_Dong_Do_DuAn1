@@ -16,7 +16,7 @@ public class DBContext {
 
     public static final String USER = "sa";
 
-    public static final String PASSWORD = "123456"; 
+    public static final String PASSWORD = "1234"; 
 
     public static final String DATABASE_NAME = "UNG_DUNG_QUAN_LY_DONG_HO";
 

@@ -4,6 +4,9 @@
  */
 package ViewModel;
 
+import DomainModel.GioHang;
+import java.util.Date;
+
 
 
 /**
@@ -12,46 +15,89 @@ package ViewModel;
  */
 public class ChiTietKhuyenMaiViewModel {
 
-    private Integer maChiTietKhuyenMai;
-    private SanPhamViewModel sanPham;
-    private KhuyenMaiViewModel khuyenMai;
+    private Integer maKhuyenMai;
+    private String tenKhuyenMai;
+    private double tienGiam;
+    private String tenSanPham;
+    private Date ngayTao;
+    private Date ngayKetThuc;
+    private double giaBan;
+   
 
     public ChiTietKhuyenMaiViewModel() {
     }
 
-    public ChiTietKhuyenMaiViewModel(Integer maChiTietKhuyenMai, SanPhamViewModel sanPham, KhuyenMaiViewModel khuyenMai) {
-        this.maChiTietKhuyenMai = maChiTietKhuyenMai;
-        this.sanPham = sanPham;
-        this.khuyenMai = khuyenMai;
+    public ChiTietKhuyenMaiViewModel(Integer maKhuyenMai, String tenKhuyenMai, double tienGiam, String tenSanPham, Date ngayTao, Date ngayKetThuc,double giaBan) {
+        this.maKhuyenMai = maKhuyenMai;
+        this.tenKhuyenMai = tenKhuyenMai;
+        this.tienGiam = tienGiam;
+        this.tenSanPham = tenSanPham;
+        this.ngayTao = ngayTao;
+        this.ngayKetThuc = ngayKetThuc;
+        this.giaBan = giaBan;
     }
 
-    public Integer getMaChiTietKhuyenMai() {
-        return maChiTietKhuyenMai;
+    public double getGiaBan() {
+        return giaBan;
     }
 
-    public void setMaChiTietKhuyenMai(Integer maChiTietKhuyenMai) {
-        this.maChiTietKhuyenMai = maChiTietKhuyenMai;
+    public void setGiaBan(double giaBan) {
+        this.giaBan = giaBan;
     }
 
-    public SanPhamViewModel getSanPham() {
-        return sanPham;
+    public Integer getMaKhuyenMai() {
+        return maKhuyenMai;
     }
 
-    public void setSanPham(SanPhamViewModel sanPham) {
-        this.sanPham = sanPham;
+    public void setMaKhuyenMai(Integer maKhuyenMai) {
+        this.maKhuyenMai = maKhuyenMai;
     }
 
-    public KhuyenMaiViewModel getKhuyenMai() {
-        return khuyenMai;
+    
+
+    public String getTenKhuyenMai() {
+        return tenKhuyenMai;
     }
 
-    public void setKhuyenMai(KhuyenMaiViewModel khuyenMai) {
-        this.khuyenMai = khuyenMai;
+    public void setTenKhuyenMai(String tenKhuyenMai) {
+        this.tenKhuyenMai = tenKhuyenMai;
     }
 
-    @Override
-    public String toString() {
-        return "ChiTietKhuyenMai{" + "maChiTietKhuyenMai=" + maChiTietKhuyenMai + ", sanPham=" + sanPham + ", khuyenMai=" + khuyenMai + '}';
+    public double getTienGiam() {
+        return tienGiam;
+    }
+
+    public void setTienGiam(double tienGiam) {
+        this.tienGiam = tienGiam;
+    }
+
+    public String getTenSanPham() {
+        return tenSanPham;
+    }
+
+    public void setTenSanPham(String tenSanPham) {
+        this.tenSanPham = tenSanPham;
+    }
+
+    public Date getNgayTao() {
+        return ngayTao;
+    }
+
+    public void setNgayTao(Date ngayTao) {
+        this.ngayTao = ngayTao;
+    }
+
+    public Date getNgayKetThuc() {
+        return ngayKetThuc;
+    }
+
+    public void setNgayKetThuc(Date ngayKetThuc) {
+        this.ngayKetThuc = ngayKetThuc;
+    }
+   
+    
+   public Object[] toDataRow() {
+        return new Object[]{maKhuyenMai, tenKhuyenMai, tenSanPham,tienGiam,giaBan*(tienGiam/100),ngayTao,ngayKetThuc,giaBan};
     }
 
 }

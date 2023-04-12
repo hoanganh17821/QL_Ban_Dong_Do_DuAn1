@@ -4,10 +4,15 @@
  */
 package Service.Interface;
 
+import DomainModel.ChiTietKhuyenMai;
+import ViewModel.ChiTietKhuyenMaiViewModel;
+import java.util.ArrayList;
+
 /**
  *
  * @author mr.quyen
  */
 public interface ChitietKhuyenMaiServiceInterface {
-    
+    ArrayList<ChiTietKhuyenMaiViewModel> getAllCTKM();
+    void insert(ChiTietKhuyenMai hdct);
 }

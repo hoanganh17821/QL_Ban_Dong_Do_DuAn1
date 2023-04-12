@@ -12,14 +12,14 @@ public class KhachHang {
 
     private Integer maKhachHang;
     private String hoTen;
-    private boolean gioiTinh;
+    private int gioiTinh;
     private String soDienThoai;
     private String diaChi;
 
     public KhachHang() {
     }
 
-    public KhachHang(Integer maKhachHang, String hoTen, boolean gioiTinh, String soDienThoai, String diaChi) {
+    public KhachHang(Integer maKhachHang, String hoTen, int gioiTinh, String soDienThoai, String diaChi) {
         this.maKhachHang = maKhachHang;
         this.hoTen = hoTen;
         this.gioiTinh = gioiTinh;
@@ -43,11 +43,11 @@ public class KhachHang {
         this.hoTen = hoTen;
     }
 
-    public boolean isGioiTinh() {
+    public int getGioiTinh() {
         return gioiTinh;
     }
 
-    public void setGioiTinh(boolean gioiTinh) {
+    public void setGioiTinh(int gioiTinh) {
         this.gioiTinh = gioiTinh;
     }
 

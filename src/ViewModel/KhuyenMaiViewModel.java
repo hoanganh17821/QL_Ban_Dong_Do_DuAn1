@@ -4,7 +4,6 @@
  */
 package ViewModel;
 
-
 import java.util.Date;
 
 /**
@@ -16,15 +15,16 @@ public class KhuyenMaiViewModel {
     private Integer maKhuyenMai;
     private String tenKhuyenMai;
     private Double tienGiam;
-    private boolean trangThai;
+    private int trangThai;
     private Date thoiGianBatDau;
     private Date thoiGianKetThuc;
+   
     private String moTa;
 
     public KhuyenMaiViewModel() {
     }
 
-    public KhuyenMaiViewModel(Integer maKhuyenMai, String tenKhuyenMai, Double tienGiam, boolean trangThai, Date thoiGianBatDau, Date thoiGianKetThuc, String moTa) {
+    public KhuyenMaiViewModel(Integer maKhuyenMai, String tenKhuyenMai, Double tienGiam, int trangThai, Date thoiGianBatDau, Date thoiGianKetThuc, String moTa) {
         this.maKhuyenMai = maKhuyenMai;
         this.tenKhuyenMai = tenKhuyenMai;
         this.tienGiam = tienGiam;
@@ -58,11 +58,11 @@ public class KhuyenMaiViewModel {
         this.tienGiam = tienGiam;
     }
 
-    public boolean isTrangThai() {
+    public int getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(boolean trangThai) {
+    public void setTrangThai(int trangThai) {
         this.trangThai = trangThai;
     }
 
@@ -90,9 +90,25 @@ public class KhuyenMaiViewModel {
         this.moTa = moTa;
     }
 
+    public String getTrangthai() {
+        if (trangThai == 0) {
+            return "Hết khuyến mãi";
+        } else {
+            return "Còn khuyến mãi";
+        }
+    }
+
+    public Object[] toDataRow() {
+        return new Object[]{maKhuyenMai, tenKhuyenMai, tienGiam , getTrangthai(), thoiGianBatDau, thoiGianKetThuc, moTa};
+    }
+
     @Override
     public String toString() {
-        return "KhuyenMai{" + "maKhuyenMai=" + maKhuyenMai + ", tenKhuyenMai=" + tenKhuyenMai + ", tienGiam=" + tienGiam + ", trangThai=" + trangThai + ", thoiGianBatDau=" + thoiGianBatDau + ", thoiGianKetThuc=" + thoiGianKetThuc + ", moTa=" + moTa + '}';
+       if(trangThai==1){
+           return tenKhuyenMai;
+       }else{
+           return null;
+       }
     }
 
 }

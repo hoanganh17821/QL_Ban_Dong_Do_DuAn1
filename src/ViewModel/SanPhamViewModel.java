@@ -21,14 +21,14 @@ public class SanPhamViewModel {
     private String maMay;
     private Double giaNhap;
     private Double GiaBan;
-    private boolean tinhTrang;
+    private String tinhTrang;
     private Integer soLuong;
     private String moTa;
 
     public SanPhamViewModel() {
     }
 
-    public SanPhamViewModel(Integer maSanPham, SizeViewModel size, ChatLieuViewModel chatLieu, MauSacViewModel mauSac, LoaiSanPhamViewModel loaiSanPham, String tenSanPham, String maMay, Double giaNhap, Double GiaBan, boolean tinhTrang, Integer soLuong, String moTa) {
+    public SanPhamViewModel(Integer maSanPham, SizeViewModel size, ChatLieuViewModel chatLieu, MauSacViewModel mauSac, LoaiSanPhamViewModel loaiSanPham, String tenSanPham, String maMay, Double giaNhap, Double GiaBan, String tinhTrang, Integer soLuong, String moTa) {
         this.maSanPham = maSanPham;
         this.size = size;
         this.chatLieu = chatLieu;
@@ -115,11 +115,11 @@ public class SanPhamViewModel {
         this.GiaBan = GiaBan;
     }
 
-    public boolean isTinhTrang() {
+    public String isTinhTrang() {
         return tinhTrang;
     }
 
-    public void setTinhTrang(boolean tinhTrang) {
+    public void setTinhTrang(String tinhTrang) {
         this.tinhTrang = tinhTrang;
     }
 
@@ -142,6 +142,9 @@ public class SanPhamViewModel {
     @Override
     public String toString() {
         return "SanPham{" + "maSanPham=" + maSanPham + ", size=" + size + ", chatLieu=" + chatLieu + ", mauSac=" + mauSac + ", loaiSanPham=" + loaiSanPham + ", tenSanPham=" + tenSanPham + ", maMay=" + maMay + ", giaNhap=" + giaNhap + ", GiaBan=" + GiaBan + ", tinhTrang=" + tinhTrang + ", soLuong=" + soLuong + ", moTa=" + moTa + '}';
+    }
+    public Object[] toDataRow() {
+        return new Object[]{maSanPham ,tenSanPham, giaNhap, GiaBan,soLuong};
     }
 
 }

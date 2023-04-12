@@ -11,13 +11,13 @@ package DomainModel;
 public class ChiTietKhuyenMai {
 
     private Integer maChiTietKhuyenMai;
-    private SanPham sanPham;
-    private KhuyenMai khuyenMai;
+    private Integer sanPham;
+    private Integer khuyenMai;
 
     public ChiTietKhuyenMai() {
     }
 
-    public ChiTietKhuyenMai(Integer maChiTietKhuyenMai, SanPham sanPham, KhuyenMai khuyenMai) {
+    public ChiTietKhuyenMai(Integer maChiTietKhuyenMai, Integer sanPham, Integer khuyenMai) {
         this.maChiTietKhuyenMai = maChiTietKhuyenMai;
         this.sanPham = sanPham;
         this.khuyenMai = khuyenMai;
@@ -31,25 +31,22 @@ public class ChiTietKhuyenMai {
         this.maChiTietKhuyenMai = maChiTietKhuyenMai;
     }
 
-    public SanPham getSanPham() {
+    public Integer getSanPham() {
         return sanPham;
     }
 
-    public void setSanPham(SanPham sanPham) {
+    public void setSanPham(Integer sanPham) {
         this.sanPham = sanPham;
     }
 
-    public KhuyenMai getKhuyenMai() {
+    public Integer getKhuyenMai() {
         return khuyenMai;
     }
 
-    public void setKhuyenMai(KhuyenMai khuyenMai) {
+    public void setKhuyenMai(Integer khuyenMai) {
         this.khuyenMai = khuyenMai;
     }
 
-    @Override
-    public String toString() {
-        return "ChiTietKhuyenMai{" + "maChiTietKhuyenMai=" + maChiTietKhuyenMai + ", sanPham=" + sanPham + ", khuyenMai=" + khuyenMai + '}';
-    }
-
+   
+    
 }

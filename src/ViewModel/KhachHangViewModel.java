@@ -14,14 +14,14 @@ public class KhachHangViewModel {
 
     private Integer maKhachHang;
     private String hoTen;
-    private boolean gioiTinh;
+    private int gioiTinh;
     private String soDienThoai;
     private String diaChi;
 
     public KhachHangViewModel() {
     }
 
-    public KhachHangViewModel(Integer maKhachHang, String hoTen, boolean gioiTinh, String soDienThoai, String diaChi) {
+    public KhachHangViewModel(Integer maKhachHang, String hoTen, int gioiTinh, String soDienThoai, String diaChi) {
         this.maKhachHang = maKhachHang;
         this.hoTen = hoTen;
         this.gioiTinh = gioiTinh;
@@ -45,11 +45,11 @@ public class KhachHangViewModel {
         this.hoTen = hoTen;
     }
 
-    public boolean isGioiTinh() {
+    public int getGioiTinh() {
         return gioiTinh;
     }
 
-    public void setGioiTinh(boolean gioiTinh) {
+    public void setGioiTinh(int gioiTinh) {
         this.gioiTinh = gioiTinh;
     }
 
@@ -73,5 +73,6 @@ public class KhachHangViewModel {
     public String toString() {
         return "KhachHang{" + "maKhachHang=" + maKhachHang + ", hoTen=" + hoTen + ", gioiTinh=" + gioiTinh + ", soDienThoai=" + soDienThoai + ", diaChi=" + diaChi + '}';
     }
+    
 
 }

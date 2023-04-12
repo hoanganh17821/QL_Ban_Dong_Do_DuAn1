@@ -4,10 +4,15 @@
  */
 package Repository.Interface;
 
+import DomainModel.ChiTietKhuyenMai;
+import ViewModel.ChiTietKhuyenMaiViewModel;
+import java.util.ArrayList;
+
 /**
  *
  * @author mr.quyen
  */
 public interface ChiTietKhuyenMaiRepositoryInterface {
-    
+    ArrayList<ChiTietKhuyenMaiViewModel> getAllCTKM();
+    void insert(ChiTietKhuyenMai hdct);
 }

@@ -4,6 +4,7 @@
  */
 package DomainModel;
 
+
 import java.util.Date;
 
 /**
@@ -15,7 +16,7 @@ public class KhuyenMai {
     private Integer maKhuyenMai;
     private String tenKhuyenMai;
     private Double tienGiam;
-    private boolean trangThai;
+    private int trangThai;
     private Date thoiGianBatDau;
     private Date thoiGianKetThuc;
     private String moTa;
@@ -23,7 +24,7 @@ public class KhuyenMai {
     public KhuyenMai() {
     }
 
-    public KhuyenMai(Integer maKhuyenMai, String tenKhuyenMai, Double tienGiam, boolean trangThai, Date thoiGianBatDau, Date thoiGianKetThuc, String moTa) {
+    public KhuyenMai(Integer maKhuyenMai, String tenKhuyenMai, Double tienGiam, int trangThai, Date thoiGianBatDau, Date thoiGianKetThuc, String moTa) {
         this.maKhuyenMai = maKhuyenMai;
         this.tenKhuyenMai = tenKhuyenMai;
         this.tienGiam = tienGiam;
@@ -57,11 +58,11 @@ public class KhuyenMai {
         this.tienGiam = tienGiam;
     }
 
-    public boolean isTrangThai() {
+    public int getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(boolean trangThai) {
+    public void setTrangThai(int trangThai) {
         this.trangThai = trangThai;
     }
 
@@ -91,7 +92,12 @@ public class KhuyenMai {
 
     @Override
     public String toString() {
-        return "KhuyenMai{" + "maKhuyenMai=" + maKhuyenMai + ", tenKhuyenMai=" + tenKhuyenMai + ", tienGiam=" + tienGiam + ", trangThai=" + trangThai + ", thoiGianBatDau=" + thoiGianBatDau + ", thoiGianKetThuc=" + thoiGianKetThuc + ", moTa=" + moTa + '}';
+        return tenKhuyenMai;
     }
+
+ 
+
+   
+    
 
 }

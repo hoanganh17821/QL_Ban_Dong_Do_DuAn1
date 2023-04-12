@@ -4,7 +4,12 @@
  */
 package Service.Implement;
 
+import DomainModel.ChiTietKhuyenMai;
+import Repository.Implement.ChiTietKhuyenMaiRepositoryImplement;
+import Repository.Interface.ChiTietKhuyenMaiRepositoryInterface;
 import Service.Interface.ChitietKhuyenMaiServiceInterface;
+import ViewModel.ChiTietKhuyenMaiViewModel;
+import java.util.ArrayList;
 
 
 
@@ -13,5 +18,15 @@ import Service.Interface.ChitietKhuyenMaiServiceInterface;
  * @author mr.quyen
  */
 public class ChiTietKhuyenMaiServiceImplement  implements ChitietKhuyenMaiServiceInterface{
+  private ChiTietKhuyenMaiRepositoryInterface repo = new ChiTietKhuyenMaiRepositoryImplement();
+    @Override
+    public ArrayList<ChiTietKhuyenMaiViewModel> getAllCTKM() {
+       return  repo.getAllCTKM();
+    }
+
+    @Override
+    public void insert(ChiTietKhuyenMai hdct) {
+         repo.insert(hdct);
+    }
     
 }
