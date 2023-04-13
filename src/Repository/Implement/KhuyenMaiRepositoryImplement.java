@@ -29,7 +29,7 @@ public class KhuyenMaiRepositoryImplement implements KhuyenMaiRepositoryInterfac
         List<KhuyenMaiViewModel> listKM = new ArrayList<>();
         try {
             Connection conn = DBContext.getConnection();
-            String sql = "SELECT * FROM KHUYENMAI";
+            String sql = "SELECT * FROM KHUYENMAI where TRANGTHAI=1";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.execute();
             ResultSet rs = ps.getResultSet();
@@ -84,34 +84,6 @@ public class KhuyenMaiRepositoryImplement implements KhuyenMaiRepositoryInterfac
             e.printStackTrace();
             return false;
         }
-//        try {
-//            Connection con = DBContext.getConnection();
-//            // Xóa bản ghi với mã khuyến mãi chỉ định
-//            String sql = "DELETE FROM KHUYENMAI WHERE MAKHUYENMAI = ?";
-//            PreparedStatement ps = con.prepareStatement(sql);
-//            ps.setInt(1, ma);
-//            ps.executeUpdate();
-//            // Thay đổi trạng thái khuyến mãi thành 0
-//            sql = "UPDATE KHUYENMAI SET TRANGTHAI = 0 WHERE MAKHUYENMAI = ?";
-//            ps = con.prepareStatement(sql);
-//            ps.setInt(1, ma);
-//            ps.executeUpdate();
-//            // Hiển thị thông tin khuyến mãi trong bảng khác
-//            sql = "insert into KHUYENMAI(TENKHUYENMAI,TIENGIAM,TRANGTHAI,THOIGIANBATDAU,THOIGIANKETTHUC,MOTA) values (?,?,?,?,?,?)";
-//            ps = con.prepareStatement(sql);
-//            KhuyenMai khuyenMai = new KhuyenMai();
-//            ps.setObject(1, khuyenMai.getTenKhuyenMai());
-//            ps.setObject(2, khuyenMai.getTienGiam());
-//            ps.setObject(3, 0);
-//            ps.setObject(4, khuyenMai.getThoiGianKetThuc());
-//            ps.setObject(5, khuyenMai.getThoiGianKetThuc());
-//            ps.setObject(6, khuyenMai.getMoTa());
-//            ps.executeUpdate();
-//            return true;
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            return false;
-//        }
     }
 
     @Override
@@ -164,32 +136,9 @@ public class KhuyenMaiRepositoryImplement implements KhuyenMaiRepositoryInterfac
         }
         return listKM;
     }
-
+//tìm kiếm theo tên sản phâm
     @Override
     public List<SanPhamViewModel> findById(String tenSanPham) {
-//        String query = " Select * from SANPHAM where TENSANPHAM like N'%" + tenSanPham + "%' ";
-//        try (Connection con = DBContext.getConnection(); Statement ps = con.createStatement();) {
-//            // ps.setI(1, tenKH);
-//            ResultSet rs = ps.executeQuery(query);
-//
-//            ArrayList<SanPhamViewModel> list = new ArrayList<>();
-//            while (rs.next()) {
-//                SanPhamViewModel km = new SanPhamViewModel();
-//                km.setMaSanPham(rs.getInt(1));
-//                km.setTenSanPham(rs.getString(12));
-//                km.setGiaNhap(rs.getDouble(7));
-//                km.setGiaBan(rs.getDouble(8));
-//                km.setTinhTrang(rs.getString(9));
-//                km.setSoLuong(rs.getInt(10));
-//                //   kh.setTenKH(tenKH);
-//                list.add(km);
-//            }
-//            System.out.println(list.size());
-//            return list;
-//        } catch (SQLException e) {
-//            e.printStackTrace(System.out);
-//        }
-//        return null;
         List<SanPhamViewModel> listKM = new ArrayList<>();
         try {
             Connection conn = DBContext.getConnection();
@@ -234,7 +183,7 @@ public class KhuyenMaiRepositoryImplement implements KhuyenMaiRepositoryInterfac
         }
         return listKM;
     }
-
+//xóa tất cả ở ctkm
     @Override
     public boolean deleteAll() {
         try {
@@ -250,5 +199,56 @@ public class KhuyenMaiRepositoryImplement implements KhuyenMaiRepositoryInterfac
             return false;
         }
     }
+//trạng thái =0 view lịch sử 
+    @Override
+    public List<KhuyenMaiViewModel> getAllHetHan() {
+
+        List<KhuyenMaiViewModel> listKM = new ArrayList<>();
+        try {
+            Connection conn = DBContext.getConnection();
+            String sql = "SELECT * FROM KHUYENMAI where TRANGTHAI=0";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.execute();
+            ResultSet rs = ps.getResultSet();
+            while (rs.next()) {
+                KhuyenMaiViewModel km = new KhuyenMaiViewModel();
+                km.setMaKhuyenMai(rs.getInt(1));
+                km.setTenKhuyenMai(rs.getString(2));
+                km.setTienGiam(rs.getDouble(3));
+                km.setTrangThai(rs.getInt(4));
+                km.setThoiGianBatDau(rs.getDate(5));
+                km.setThoiGianKetThuc(rs.getDate(6));
+                km.setMoTa(rs.getString(7));
+                listKM.add(km);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listKM;
+    }
+//click vào nút ngừng áp dụng update trạng thái còn khuyến mại = hết khuyến mại và xóa trong ctkm
+    @Override
+    public boolean updateTrangThai(KhuyenMai khuyenMai, int ma) {
+        try {
+            Connection con = DBContext.getConnection();
+            String query = "UPDATE KHUYENMAI SET  TRANGTHAI=? where MAKHUYENMAI=? ";
+
+            PreparedStatement ps = con.prepareStatement(query);
+
+            ps.setObject(1, 0);
+            ps.setObject(2, ma);
+            ps.executeUpdate();
+            String deleteQuery = "DELETE FROM CHITIETKHUYENMAI WHERE MAKHUYENMAI=?";
+            PreparedStatement psDelete = con.prepareStatement(deleteQuery);
+            psDelete.setObject(1, ma);
+            psDelete.executeUpdate();
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
 }

@@ -97,7 +97,7 @@ public class ChiTietKhuyenMaiViewModel {
    
     
    public Object[] toDataRow() {
-        return new Object[]{maKhuyenMai, tenKhuyenMai, tenSanPham,tienGiam,giaBan*(tienGiam/100),ngayTao,ngayKetThuc,giaBan};
+        return new Object[]{maKhuyenMai, tenKhuyenMai, tenSanPham,giaBan,(giaBan*(100-tienGiam))/100,ngayTao,ngayKetThuc,giaBan};
     }
 
 }

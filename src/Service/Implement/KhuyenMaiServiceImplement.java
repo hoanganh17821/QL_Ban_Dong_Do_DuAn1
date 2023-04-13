@@ -61,4 +61,16 @@ public class KhuyenMaiServiceImplement implements KhuyenMaiServiceInterface {
        return repo.deleteAll();
     }
 
+    @Override
+    public boolean updateTrangThai(KhuyenMai khuyenMai, int tt) {
+        return repo.updateTrangThai(khuyenMai, tt);
+    }
+
+    @Override
+    public List<KhuyenMaiViewModel> getAllHetHan() {
+        return repo.getAllHetHan();
+    }
+
+
+
 }
