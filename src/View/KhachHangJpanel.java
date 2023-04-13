@@ -66,7 +66,14 @@ public class KhachHangJpanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Không đuọc để trống họ tên");
             return null;  
         }
-        
+        if (dc.length() == 0) {
+            JOptionPane.showMessageDialog(this, "Không đuọc để trống địa chỉ");
+            return null;  
+        }
+        if (sdt.length() == 0) {
+            JOptionPane.showMessageDialog(this, "Không đuọc để trống số điện thoại");
+            return null;  
+        }
         int gt;
         if (rdoNam.isSelected()) {
             gt = 1;
@@ -326,7 +333,7 @@ public class KhachHangJpanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "MaKH", "TenKH", "GioiTinh", "Sdt", "DiaChi"
+                "Mã khách hàng", "Tên khách hàng", "Giới Tính", "Số điện thoại", "Địa chỉ"
             }
         ) {
             Class[] types = new Class [] {
@@ -432,7 +439,6 @@ public class KhachHangJpanel extends javax.swing.JPanel {
     private void bntthemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntthemActionPerformed
         KhachHang khachHang = this.getFormDaTa();
         if (khachHang == null) {
-            JOptionPane.showMessageDialog(this, "Cần nhập đầy đủ thông tin");
             return;
         } else {
             int confirm = JOptionPane.showConfirmDialog(this, "Xác nhận thêm");
