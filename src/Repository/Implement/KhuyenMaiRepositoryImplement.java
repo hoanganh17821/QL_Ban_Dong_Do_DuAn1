@@ -98,7 +98,7 @@ public class KhuyenMaiRepositoryImplement implements KhuyenMaiRepositoryInterfac
             ps.setObject(1, khuyenMai.getTenKhuyenMai());
             ps.setObject(2, khuyenMai.getTienGiam());
             ps.setObject(3, 1);
-            ps.setObject(4, khuyenMai.getThoiGianKetThuc());
+            ps.setObject(4, khuyenMai.getThoiGianBatDau());
             ps.setObject(5, khuyenMai.getThoiGianKetThuc());
             ps.setObject(6, khuyenMai.getMoTa());
             ps.setObject(7, ma);

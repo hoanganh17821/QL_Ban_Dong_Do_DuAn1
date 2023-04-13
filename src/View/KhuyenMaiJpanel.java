@@ -124,11 +124,11 @@ public class KhuyenMaiJpanel extends javax.swing.JPanel {
         try {
             tienGiamm = Double.parseDouble(txtTienGiam.getText());
             if (tienGiamm < 0) {
-                JOptionPane.showMessageDialog(this, "Số tiền giảm không được nhỏ hơn 0.");
+                JOptionPane.showMessageDialog(this, "Số phần trăm  giảm không được nhỏ hơn 0.");
                 return null;
             }
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Vui lòng nhập số tiền giảm hợp lệ.");
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập phần trăm  giảm hợp lệ.");
             return null;
         }
         try {
@@ -231,7 +231,7 @@ public class KhuyenMaiJpanel extends javax.swing.JPanel {
 
         lbnkhuyenmai.setText("Tạo chương trình khuyến mãi");
 
-        lbltienGiam.setText("Tiền Giảm");
+        lbltienGiam.setText("Phần trăm giảm");
 
         jLabel19.setText("Thời gian bắt đầu");
 
@@ -333,7 +333,7 @@ public class KhuyenMaiJpanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "MaKM", "TenKM", "TenSP", "GiaBan", "GiaBanKM", "NgayTao", "NgayHetHan"
+                "Mã khuyến mại", "Tên khuyến mại", "Tên sản phẩm", "Giá bán", "Giá bán khuyến mại", "Thời gian bắt đầu", "Thời gian kết thúc"
             }
         ) {
             Class[] types = new Class [] {
@@ -361,7 +361,7 @@ public class KhuyenMaiJpanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "MaSp", "TenSp", "GiaNhap", "GiaBan", "SoLuong"
+                "Mã sản phẩm", "Tên sản phẩm", "Giá nhập", "Giá bán", "Số lượng"
             }
         ) {
             Class[] types = new Class [] {
